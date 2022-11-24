@@ -1,0 +1,32 @@
+HTTP ES UN PROTOCOLO DE COMUNICACIÓN
+	https://www.google.com/
+	    (security)
+https://www.google.com/search
+	?q=moto+honda
+	&anio=2022
+COMPONENTES
+	HEADER
+		URL
+		Variables en Url
+		https://www.google.com/search
+		variable ==> 
+			q=moto+honda
+			anio=2022
+		http://localhost:5454/api/producto?nombre=leche&anio=2022         
+		http://localhost:5454/api/producto/{nombre}/{anio_fabricacion}
+		http://localhost:5454/api/producto/leche/2022
+
+		VARIABLES DE CABECERA
+			IP / Navegador / 
+			HOST
+		Authorization
+			
+
+
+	BODY ==> enviar variables complejas
+			clase / modelo
+			Lista de clases / modelos
+
+
+
+
