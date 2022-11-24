@@ -1,0 +1,24 @@
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.Design
+Microsoft.EntityFrameworkCore.Abstractions
+Microsoft.EntityFrameworkCore.Tools
+Si vamos a trabajar con SQL Server
+	Microsoft.EntityFrameworkCore.SqlServer
+
+Si vamos a trabajar con MySQL
+	Pomelo.EntityFrameworkCore.MySql
+
+--------------------------------------------------
+Mapear nuestra cadena de conexión
+	1 server explorer
+		Connect to databaswe (enchufe)
+
+		Data Source=localhost;Initial Catalog=TercerCiclo;Integrated Security=True
+
+
+
+
+
+
+
+
