@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "z450RzA2DolkLsviTS24bx9Js/LmIs7mfCFetQZG9Znm4s9lVB/uefohQT1UWGtPQ0psnVEfgW/4R7eXbmCrJg==",
+  "success": true,
+  "projectFilePath": "E:\\Instituto Continental\\tercerCiclo\\AppTercerCicloDemo01\\AppTercerCicloDemo01\\AppTercerCicloDemo01.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Franklin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Franklin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Franklin\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Franklin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Franklin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Franklin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
