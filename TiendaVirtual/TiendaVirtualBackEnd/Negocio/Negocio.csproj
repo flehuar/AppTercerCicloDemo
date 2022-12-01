@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
@@ -25,9 +25,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Constantes\Constantes.csproj" />
     <ProjectReference Include="..\DataInterface\DataInterface.csproj" />
-    <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
     <ProjectReference Include="..\NegocioInterface\NegocioInterface.csproj" />
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj" />
     <ProjectReference Include="..\Utilitarios\Utilitarios.csproj" />
   </ItemGroup>
 
