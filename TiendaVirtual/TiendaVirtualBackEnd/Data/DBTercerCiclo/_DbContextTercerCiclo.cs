@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppTercerCicloDemo01.DBTercerCiclo;
+namespace Data.DBTercerCiclo;
 
 public partial class _DbContextTercerCiclo : DbContext
 {
@@ -28,7 +28,6 @@ public partial class _DbContextTercerCiclo : DbContext
     public virtual DbSet<VentaTipoDocumento> VentaTipoDocumentos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
         => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=TercerCiclo;Integrated Security=True; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

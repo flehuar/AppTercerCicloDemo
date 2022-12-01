@@ -8,6 +8,10 @@ Si vamos a trabajar con SQL Server
 Si vamos a trabajar con MySQL
 	Pomelo.EntityFrameworkCore.MySql
 
+
+
+AutoMapper.Extensions.Microsoft.DependencyInjection
+
 --------------------------------------------------
 Mapear nuestra cadena de conexión
 	1 server explorer
