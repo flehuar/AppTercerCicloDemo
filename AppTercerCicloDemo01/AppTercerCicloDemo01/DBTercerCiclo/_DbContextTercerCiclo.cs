@@ -15,9 +15,11 @@ public partial class _DbContextTercerCiclo : DbContext
     {
     }
 
-    public virtual DbSet<Categorium> Categoria { get; set; }
+    public virtual DbSet<Categoria> Categorias { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
+
+    public virtual DbSet<Venta> Ventas { get; set; }
 
     public virtual DbSet<VentaDetalle> VentaDetalles { get; set; }
 
@@ -25,14 +27,13 @@ public partial class _DbContextTercerCiclo : DbContext
 
     public virtual DbSet<VentaTipoDocumento> VentaTipoDocumentos { get; set; }
 
-    public virtual DbSet<Ventum> Venta { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=TercerCiclo;Integrated Security=True; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Categorium>(entity =>
+        modelBuilder.Entity<Categoria>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("pk_Categoria");
 
@@ -49,6 +50,15 @@ public partial class _DbContextTercerCiclo : DbContext
             entity.Property(e => e.Stock).HasComment("00000,000");
 
             entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Productos).HasConstraintName("fk_Producto_Categoria");
+        });
+
+        modelBuilder.Entity<Venta>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Venta__3213E83FAF658C53");
+
+            entity.HasOne(d => d.IdVentaEstadoNavigation).WithMany(p => p.Venta).HasConstraintName("FK__Venta__id_venta___32E0915F");
+
+            entity.HasOne(d => d.IdVentaTipoDocumentoNavigation).WithMany(p => p.Venta).HasConstraintName("FK__Venta__id_Venta___31EC6D26");
         });
 
         modelBuilder.Entity<VentaDetalle>(entity =>
@@ -74,15 +84,6 @@ public partial class _DbContextTercerCiclo : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Venta_Ti__3213E83F8DFF0632");
 
             entity.Property(e => e.Estado).HasDefaultValueSql("((1))");
-        });
-
-        modelBuilder.Entity<Ventum>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Venta__3213E83FAF658C53");
-
-            entity.HasOne(d => d.IdVentaEstadoNavigation).WithMany(p => p.Venta).HasConstraintName("FK__Venta__id_venta___32E0915F");
-
-            entity.HasOne(d => d.IdVentaTipoDocumentoNavigation).WithMany(p => p.Venta).HasConstraintName("FK__Venta__id_Venta___31EC6D26");
         });
 
         OnModelCreatingPartial(modelBuilder);

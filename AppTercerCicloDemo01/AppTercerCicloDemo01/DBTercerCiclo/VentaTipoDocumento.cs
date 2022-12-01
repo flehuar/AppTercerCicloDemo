@@ -27,5 +27,5 @@ public partial class VentaTipoDocumento
     public bool? Estado { get; set; }
 
     [InverseProperty("IdVentaTipoDocumentoNavigation")]
-    public virtual ICollection<Ventum> Venta { get; } = new List<Ventum>();
+    public virtual ICollection<Venta> Venta { get; } = new List<Venta>();
 }

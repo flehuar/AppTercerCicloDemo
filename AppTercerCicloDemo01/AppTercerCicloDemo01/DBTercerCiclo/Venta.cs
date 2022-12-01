@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppTercerCicloDemo01.DBTercerCiclo;
 
-public partial class Ventum
+public partial class Venta
 {
     [Key]
     [Column("id")]

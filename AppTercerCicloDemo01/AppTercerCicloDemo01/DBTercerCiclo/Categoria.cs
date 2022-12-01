@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppTercerCicloDemo01.DBTercerCiclo;
 
-public partial class Categorium
+public partial class Categoria
 {
     [Key]
     public int Id { get; set; }

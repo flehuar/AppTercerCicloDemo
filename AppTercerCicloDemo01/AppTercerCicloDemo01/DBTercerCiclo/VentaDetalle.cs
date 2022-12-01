@@ -39,7 +39,7 @@ public partial class VentaDetalle
 
     [ForeignKey("IdCategoria")]
     [InverseProperty("VentaDetalles")]
-    public virtual Categorium? IdCategoriaNavigation { get; set; }
+    public virtual Categoria? IdCategoriaNavigation { get; set; }
 
     [ForeignKey("IdProducto")]
     [InverseProperty("VentaDetalles")]
@@ -51,5 +51,5 @@ public partial class VentaDetalle
 
     [ForeignKey("IdVenta")]
     [InverseProperty("VentaDetalles")]
-    public virtual Ventum? IdVentaNavigation { get; set; }
+    public virtual Venta? IdVentaNavigation { get; set; }
 }

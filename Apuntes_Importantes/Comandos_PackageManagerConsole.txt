@@ -14,3 +14,15 @@ Comando de entity framework para mapear todas las tablas de la base de datos
 Scaffold-DbContext "Data Source=localhost;Initial Catalog=TercerCiclo;Integrated Security=True; TrustServerCertificate=True"  Microsoft.EntityFrameworkCore.SqlServer -OutputDir DBTercerCiclo -DataAnnotations -Context "_DbContextTercerCiclo" -Force
 
 
+
+
+CONFIGURACIÓN POSTMAN
+
+	VARIABLES DE ENTORNO
+		URL BASE ==> https://localhost:7012/api/ || {{url}}
+
+
+
+
+
+
