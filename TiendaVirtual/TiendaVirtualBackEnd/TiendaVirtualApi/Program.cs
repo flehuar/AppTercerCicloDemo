@@ -4,6 +4,21 @@ using Utilitarios;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "mis origenes",
+                      builder =>
+                      {
+                          builder.AllowAnyMethod();
+                          builder.AllowAnyOrigin();
+                          builder.AllowAnyHeader();
+
+                      });
+});
+
+
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -53,5 +68,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(x =>
+{
+    x.AllowAnyHeader();
+    x.AllowAnyOrigin();
+    x.AllowAnyMethod();
+});
 
 app.Run();

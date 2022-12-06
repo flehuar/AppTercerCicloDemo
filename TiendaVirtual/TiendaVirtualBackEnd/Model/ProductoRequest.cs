@@ -22,6 +22,8 @@ namespace Model
         [Column(TypeName = "decimal(8, 3)")]
         public decimal? Stock { get; set; }
         public bool? Estado { get; set; }
+         
+        public string Codigo { get; set; }
 
         //[InverseProperty("Productos")]
         //public virtual Categoria? IdCategoriaNavigation { get; set; }

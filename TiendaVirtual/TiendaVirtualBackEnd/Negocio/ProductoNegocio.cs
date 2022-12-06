@@ -27,22 +27,22 @@ namespace Negocio
 
         public ProductoResponse Create(ProductoRequest request)
         {
-            throw new NotImplementedException();
+            Producto producto = _mapper.Map<Producto>(request);
+            producto = _productoRepositorio.Create(producto);
+            ProductoResponse response = _mapper.Map<ProductoResponse>(producto);
+            return response;
         }
 
-        public List<ProductoResponse> CreateMultiple(List<ProductoRequest> request)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public int delete(int id)
         {
-            throw new NotImplementedException();
+            return _productoRepositorio.delete(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<ProductoResponse> GetAll()
@@ -70,17 +70,34 @@ namespace Negocio
 
         public ProductoResponse GetById(int id)
         {
-            throw new NotImplementedException();
+            Producto producto = _productoRepositorio.GetById(id);
+            ProductoResponse response = _mapper.Map<ProductoResponse>(producto);
+            return response;
         }
 
         public ProductoResponse Update(ProductoRequest request)
         {
-            throw new NotImplementedException();
+
+            Producto producto = _mapper.Map<Producto>(request);
+            producto = _productoRepositorio.Update(producto);
+            ProductoResponse response = _mapper.Map<ProductoResponse>(producto);
+            return response;
         }
 
+
+        public List<ProductoResponse> CreateMultiple(List<ProductoRequest> request)
+        {
+            List<Producto> productos = _mapper.Map<List<Producto>>(request);
+            productos = _productoRepositorio.CreateMultiple(productos);
+            List<ProductoResponse> response = _mapper.Map<List<ProductoResponse>>(productos);
+            return response;
+        }
         public List<ProductoResponse> UpdateMultiple(List<ProductoRequest> request)
         {
-            throw new NotImplementedException();
+            List<Producto> productos = _mapper.Map<List<Producto>>(request);
+            productos = _productoRepositorio.UpdateMultiple(productos);
+            List<ProductoResponse> response = _mapper.Map<List<ProductoResponse>>(productos);
+            return response;
         }
     }
 }
