@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <h5 class="card-title text-center mb-5 fw-light fs-5">Acceder</h5>
+                    <form [formGroup]="myForm">
+                        <div class="form-floating mb-3">
+                            <input pattern="" formControlName="username" type="email" class="form-control"
+                                id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email</label>
+                            <div *ngIf="myForm.controls['username'].errors && myForm.touched" >
+                                <small class="text-danger" *ngIf="myForm.controls['username'].errors['required']"> 
+                                    El campo usuario es requerido
+                                </small>
+                                <small class="text-danger" *ngIf="myForm.controls['username'].errors['email']"> 
+                                    El formato de email es incorrecto => example@continental.edu.pe
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+                                placeholder="Password">
+                            <label for="floatingPassword">Contraseña</label>
+                            <div *ngIf="myForm.controls['password'].errors && myForm.touched" >
+                                <small class="text-danger" *ngIf="myForm.controls['password'].errors['required']"> 
+                                    El campo contraseña es requerido
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <!-- <div>
+                            Mostrar Errores
+                            <p>
+                                username : {{myForm.controls['username'].errors | json}}
+                            </p>
+                            <p>
+                               password: {{myForm.controls['password'].errors | json}}
+                            </p>
+                        </div> -->
+
+                        <div class="d-grid">
+                            <button [disabled]="myForm.invalid" (click)="acceder()"
+                                class="btn btn-primary btn-login text-uppercase fw-bold">Ingresar</button>
+                        </div>
+                        <hr class="my-4">
+                        <div class="d-grid mb-2">
+                            <label class="btn btn-google btn-login text-uppercase fw-bold">
+                                <i class="fas fa-google me-2"></i> Ingresar con Google
+                            </label>
+                        </div>
+                        <div class="d-grid">
+                            <label class="btn btn-facebook btn-login text-uppercase fw-bold">
+                                <i class="fas fa-facebook-f me-2"></i> Ingresar con Facebook
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

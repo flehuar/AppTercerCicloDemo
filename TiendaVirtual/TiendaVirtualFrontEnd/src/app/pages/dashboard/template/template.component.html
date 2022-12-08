@@ -1,0 +1,19 @@
+<!-- inicio de nuestro header -->
+<app-template-header></app-template-header>
+<!-- fin de nuestro header -->
+
+<div id="layoutSidenav">
+    <!-- inicio - sección de menú -->
+    <app-template-sidebar></app-template-sidebar>
+    <!-- fin - sección de menú -->
+    <div id="layoutSidenav_content">
+        <!-- inicio contenido de la página -->
+        <main>
+            <div class="container-fluid px-4">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+        <!-- fin contenido de la página -->
+        <app-template-footer></app-template-footer>
+    </div>
+</div>
