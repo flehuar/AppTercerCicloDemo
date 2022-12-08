@@ -1,0 +1,10 @@
+
+Angular files
+Angular Language Service
+C# To TypeScript
+CSS Formatter
+Mitril Emmet
+Path Autocomplete
+Pat Intellisence
+Prettier
+TODO Highlight
