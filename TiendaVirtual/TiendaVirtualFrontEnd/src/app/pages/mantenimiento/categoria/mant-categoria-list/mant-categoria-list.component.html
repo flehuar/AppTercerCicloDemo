@@ -1,0 +1,59 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">
+        <h2>MANTENIMIENTO DE CATEGORÍA</h2>
+    </div>
+    <div class="card-body">
+
+        <!-- creando una tabla -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Código</th>
+                    <th>
+                        <button (click)="btnAgregar(modalTemplate)" class=" btn btn-success btn-sm ms-2">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listaCategoria">
+                    <td> {{item.id}} </td>
+                    <td> {{item.nombre}} </td>
+                    <td> {{item.descripcion}} </td>
+                    <td> {{item.estado ? 'Activo':'Inactivo'}} </td>
+                    <td> {{item.codigo}} </td>
+                    <td>
+
+                        <button (click)="btnEditar(modalTemplate,item)" class="btn btn-primary btn-sm ms-2">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button (click)="btnEliminar(item)" class="btn btn-danger btn-sm ms-2">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+
+<ng-template #modalTemplate>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{tituloModal}}</h4>
+        <button type="button" class="btn-close btn-danger close pull-right" aria-label="Close"
+            (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-mant-categoria-edit [categoria]="categoria_seleccionada"></app-mant-categoria-edit>
+    </div>
+</ng-template>

@@ -12,6 +12,11 @@ namespace Utilitarios
         {
             CreateMap<ProductoRequest, Producto>().ReverseMap();
             CreateMap<ProductoResponse, Producto>().ReverseMap();
+
+            CreateMap<CategoriaRequest, Categoria>().ReverseMap();
+            CreateMap<Categoria, CategoriaResponse>().ReverseMap();
+
+
         }
     }
 }

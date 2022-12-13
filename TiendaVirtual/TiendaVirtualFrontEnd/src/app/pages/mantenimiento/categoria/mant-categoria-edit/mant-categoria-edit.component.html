@@ -1,0 +1,34 @@
+<form [formGroup]="myForm">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-grop">
+                <label for="">ID</label>
+                <input type="text" class="form-control" formControlName="id">
+            </div>
+            <div class="form-grop mt-3">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre Categoría">
+            </div>
+            <div class="form-grop mt-3">
+                <label for="">Descripcion</label>
+                <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripcion Categoría">
+            </div>
+            <div class="form-grop mt-3">
+                <label for="">Codigo</label>
+                <input type="text" class="form-control" formControlName="codigo" placeholder="Codigo de Categoría">
+            </div>
+            <div class="form-grop mt-3">
+                <label for="">Estado</label>
+                <select class="form-select" formControlName="estado">
+                    <option value="true">Activo</option>
+                    <option value="false">Inactivo</option>
+                </select>
+                
+            </div>
+            <div class="form-grop mt-3">
+                <button class="ms-2 float-end btn btn-danger btn-sm"> <i class="fas fa-ban"></i> Cancelar</button>
+                <button class="ms-2 float-end btn btn-primary btn-sm"> <i class="fas fa-save"></i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</form>
