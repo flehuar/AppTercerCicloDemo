@@ -5,7 +5,7 @@
     <div class="card-body">
 
         <!-- creando una tabla -->
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -54,6 +54,9 @@
         </button>
     </div>
     <div class="modal-body">
-        <app-mant-categoria-edit [categoria]="categoria_seleccionada"></app-mant-categoria-edit>
+        <app-mant-categoria-edit [categoria]="categoria_seleccionada"
+            (closeModalEmmit)="recibirVariableRetornoEdit($event)">
+
+        </app-mant-categoria-edit>
     </div>
 </ng-template>

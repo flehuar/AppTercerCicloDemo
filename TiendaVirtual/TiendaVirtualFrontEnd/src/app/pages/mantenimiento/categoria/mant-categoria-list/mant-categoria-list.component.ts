@@ -26,11 +26,11 @@ export class MantCategoriaListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("iniciando");
     this.getAllCategorias();
   }
 
   getAllCategorias() {
+    this.listaCategoria = [];
     this._categoriaService.getAll().subscribe(
       (data: CategoriaResponse[]) => {
         this.listaCategoria = data;
@@ -46,7 +46,6 @@ export class MantCategoriaListComponent implements OnInit {
         console.log("3333333333333");
       }
     );
-    console.log("esto está fuera - del servicio de categoría");
   }
 
 
@@ -80,9 +79,10 @@ export class MantCategoriaListComponent implements OnInit {
     this._categoriaService.delete(id).subscribe(
       (data: number) => {
         this.toastr.success('Registro eliminado de forma satisfactoría', 'Felicitaciones!');
+        this.getAllCategorias();
       },
       err => {
-        this.toastr.error('Error!', 'No se pudo eliminar el registro correspondiente');
+        this.toastr.error('No se pudo eliminar el registro correspondiente', 'Error!');
       },
       () => {
       }
@@ -93,8 +93,6 @@ export class MantCategoriaListComponent implements OnInit {
   btnEditar(template: TemplateRef<any>, obj: CategoriaResponse) {
     this.tituloModal = "Editar Categoría";
     this.categoria_seleccionada = obj;
-    console.log(this.categoria_seleccionada);
-    
     this.openModal(template);
 
   }
@@ -102,14 +100,26 @@ export class MantCategoriaListComponent implements OnInit {
   btnAgregar(template: TemplateRef<any>) {
     this.tituloModal = "Nueva Categoría";
     this.categoria_seleccionada = new CategoriaResponse();
-    console.log(this.categoria_seleccionada);
-    
     this.openModal(template);
   }
 
 
+  recibirVariableRetornoEdit(res: boolean) {
+    console.log("recibiendo valor del componente hijo");
+    console.log(res);
+
+    if (res) {
+      this.getAllCategorias();
+    }
+
+
+    this.modalRef?.hide();
+  }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
+
+
 
 }
