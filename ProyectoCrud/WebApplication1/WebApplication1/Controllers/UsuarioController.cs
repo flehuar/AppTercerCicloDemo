@@ -8,19 +8,17 @@ namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[AllowAnonymous]
     [Authorize]
-    //[Authorize] ==> que va a rechazar todas las peticiones que no vengan
-    // con el token dentro de la petición HTTP
-    public class ProductoController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
-        ProductoLogica logica = new ProductoLogica();
+
+        UsuarioLogica logica = new UsuarioLogica();
 
 
         [HttpGet]
         public IActionResult get()
         {
-            List<Producto> productos = logica.getAll();
+            List<Usuario> productos = logica.getAll();
             return Ok(productos);
         }
 
@@ -28,22 +26,22 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public IActionResult getByid(int id)
         {
-            Producto producto = logica.getById(id);
+            Usuario producto = logica.getById(id);
             return Ok(producto);
         }
 
         [HttpPost]
-        public IActionResult create(Producto request)
+        public IActionResult create(Usuario request)
         {
-            Producto producto = logica.create(request);
+            Usuario producto = logica.create(request);
             return Ok(producto);
         }
 
 
         [HttpPut]
-        public IActionResult update(Producto request)
+        public IActionResult update(Usuario request)
         {
-            Producto producto = logica.update(request);
+            Usuario producto = logica.update(request);
             return Ok(producto);
         }
 

@@ -6,7 +6,7 @@ namespace WebApplication1._03_Repositorio
     {
         _DbContextCrud db = new _DbContextCrud();
 
-
+        #region crud methods
         public List<Producto> getAll()
         {
             //select * from producto
@@ -25,7 +25,7 @@ namespace WebApplication1._03_Repositorio
         //insert into producto
         //select * from producto wherd id = id
         public Producto create(Producto request)
-        { 
+        {
             //request.id = 0 // 4
             db.Productos.Add(request);
             db.SaveChanges();
@@ -52,6 +52,9 @@ namespace WebApplication1._03_Repositorio
             db.Productos.Remove(producto);
             return db.SaveChanges();
         }
+        #endregion crud methods
+
+        
 
     }
 }

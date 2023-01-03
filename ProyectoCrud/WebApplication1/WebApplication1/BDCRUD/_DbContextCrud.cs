@@ -15,7 +15,15 @@ public partial class _DbContextCrud : DbContext
     {
     }
 
+    public virtual DbSet<Menu> Menus { get; set; }
+
+    public virtual DbSet<MenuRole> MenuRoles { get; set; }
+
     public virtual DbSet<Producto> Productos { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -23,9 +31,39 @@ public partial class _DbContextCrud : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Menu>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__menu__3213E83F32C878BA");
+        });
+
+        modelBuilder.Entity<MenuRole>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__menu_rol__3213E83FDBB0023B");
+
+            entity.HasOne(d => d.IdMenuNavigation).WithMany(p => p.MenuRoles)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__menu_role__id_me__34C8D9D1");
+
+            entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.MenuRoles)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__menu_role__id_ro__35BCFE0A");
+        });
+
         modelBuilder.Entity<Producto>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__producto__3213E83F05897687");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__role__3213E83FE9D9B5A4");
+        });
+
+        modelBuilder.Entity<Usuario>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__3213E83F433E22B0");
+
+            entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.Usuarios).HasConstraintName("FK__Usuario__id_role__36B12243");
         });
 
         OnModelCreatingPartial(modelBuilder);
