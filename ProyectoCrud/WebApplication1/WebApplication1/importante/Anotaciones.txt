@@ -1,0 +1,9 @@
+﻿
+
+
+
+
+
+
+
+Scaffold-DbContext "Data Source=localhost;Initial Catalog=CRUD;Integrated Security=True; TrustServerCertificate=True"  Microsoft.EntityFrameworkCore.SqlServer -OutputDir BDCRUD -DataAnnotations -Context "_DbContextCrud" -Force

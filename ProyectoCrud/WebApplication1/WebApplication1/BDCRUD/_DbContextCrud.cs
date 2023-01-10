@@ -15,6 +15,10 @@ public partial class _DbContextCrud : DbContext
     {
     }
 
+    public virtual DbSet<Fruta> Frutas { get; set; }
+
+    public virtual DbSet<FrutaCategoria> FrutaCategorias { get; set; }
+
     public virtual DbSet<Menu> Menus { get; set; }
 
     public virtual DbSet<MenuRole> MenuRoles { get; set; }
@@ -31,6 +35,18 @@ public partial class _DbContextCrud : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Fruta>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__fruta__3213E83F725B0EB1");
+
+            entity.HasOne(d => d.IdFrutaCategoriaNavigation).WithMany(p => p.Fruta).HasConstraintName("FK__fruta__id_fruta___4D94879B");
+        });
+
+        modelBuilder.Entity<FrutaCategoria>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__fruta_ca__3213E83F7FA9290D");
+        });
+
         modelBuilder.Entity<Menu>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__menu__3213E83F32C878BA");
